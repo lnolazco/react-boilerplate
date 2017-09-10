@@ -23,4 +23,19 @@ export function getAll() {
   };
 }
 
-export default { getAll };
+export function updateUser(user) {
+  return (dispatch) => {
+    axios({
+      method: 'POST',
+      url: 'http://localhost:8181/users',
+      data: user,
+    })
+    .then(({ status, data }) => {
+      if (status === 200) {
+        dispatch(received(data));
+      }
+    });
+  };
+}
+
+export default { getAll, updateUser };
