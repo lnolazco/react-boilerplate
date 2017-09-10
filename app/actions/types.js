@@ -1,4 +1,3 @@
 export const GET_ALL = 'GET_ALL';
-export const UPDATE_USER = 'UPDATE_USER';
-
-export default { GET_ALL, UPDATE_USER };
+export const ADD_USER = 'ADD_USER';
+export const DELETE_USER = 'DELETE_USER';

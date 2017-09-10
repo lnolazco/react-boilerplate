@@ -1,3 +1,8 @@
-export { default as users } from './users';
+import { combineReducers } from 'redux';
+import users from './users';
 
-export default {};
+const rootReducer = combineReducers({
+  users,
+});
+
+export default rootReducer;
