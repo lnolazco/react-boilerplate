@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './styles.scss';
 import { getAll } from '../../actions/users';
 
 export class AppContainer extends Component {

@@ -1,19 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from '../../app/components/App';
+
+import { AppContainer } from '../../app/components/App';
+
+const props = {
+  users: [],
+  getAll: () => {},
+};
 
 describe('App Component', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    wrapper = shallow(<AppContainer {...props} />);
   });
 
   it('should exist', () => {
     expect(wrapper).toBeTruthy();
-  });
-  
-  it('should have one heading', () => {
-    expect(wrapper.find('#heading').type()).toEqual('h2');
   });
 });
