@@ -1,5 +1,7 @@
 # React boilerplate
 
+[![Build Status](https://travis-ci.org/lnolazco/react-boilerplate.svg?branch=master)](https://travis-ci.org/lnolazco/react-boilerplate)
+
 It includes: 
 
 - [x] React 15.6.1
