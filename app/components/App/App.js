@@ -34,7 +34,7 @@ export class AppContainer extends Component {
 
     return (
       <div className="app">
-        <h2 className="app__header">Test</h2>
+        <h2 className="app__header">CRUD Example</h2>
         <div className="app__list">
           <List>
             {this.renderUsers(users)}
