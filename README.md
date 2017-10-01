@@ -5,7 +5,7 @@
 
 It includes: 
 
-- [x] React 15.6.1
+- [x] React 16
 - [x] ECMAScript 6 and JSX support
 - [x] React Router v4
 - [x] Component testing using [Enzyme](https://github.com/airbnb/enzyme) and [Jest](https://facebook.github.io/jest)
