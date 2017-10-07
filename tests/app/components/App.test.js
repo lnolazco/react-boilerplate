@@ -29,11 +29,7 @@ describe('App Component', () => {
     expect(wrapper.find('.app__header').length);
   });
 
-  it('should add a List component', () => {
-    expect(wrapper.find('List').length);
-  });
-
-  it('should add 2 User components', () => {
-    expect(wrapper.find('User').length).toBe(2);
+  it('should add a Table component', () => {
+    expect(wrapper.find('Table').length);
   });
 });

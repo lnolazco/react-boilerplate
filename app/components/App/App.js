@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import List from '../List';
+import Table from '../Table';
 import User from '../User';
 import { getAll, updateUser, addUser, deleteUser } from '../../actions/users';
 
@@ -36,9 +36,10 @@ export class AppContainer extends Component {
       <div className="app">
         <h2 className="app__header">CRUD Example</h2>
         <div className="app__list">
-          <List>
-            {this.renderUsers(users)}
-          </List>
+          <Table
+            headers={['First name', 'Surname', '']}
+            data={this.renderUsers(users)}
+          />
         </div>
         <div className="app__controls">
           <button onClick={this.addNewRow} className="btn btn--primary">Add new</button>

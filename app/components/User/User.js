@@ -21,7 +21,8 @@ class User extends Component {
 
   onUpdate = () => {
     const { firstname, surname } = this.state;
-    this.props.onUpdate({ id: this.props.id, firstname, surname });
+    const { onUpdate, id } = this.props;
+    onUpdate({ id, firstname, surname });
   }
 
   onDelete = () => {
@@ -31,7 +32,8 @@ class User extends Component {
 
   hasNotChange = () => {
     const { firstname, surname } = this.state;
-    return (this.props.firstname === firstname && this.props.surname === surname) || firstname === '' || surname === '';
+    const initial = this.props;
+    return (initial.firstname === firstname && initial.surname === surname) || firstname === '' || surname === '';
   }
 
   render() {
@@ -40,10 +42,10 @@ class User extends Component {
     return (
       <tr className="user">
         <td>
-          <input type="text" value={firstname} onChange={this.onChangeFirstname} />
+          <input type="text" className="user__input" value={firstname} onChange={this.onChangeFirstname} />
         </td>
         <td>
-          <input type="text" value={surname} onChange={this.onChangeSurname} />
+          <input type="text" className="user__input" value={surname} onChange={this.onChangeSurname} />
         </td>
         <td>
           <button onClick={this.onUpdate} className="btn btn--primary" disabled={this.hasNotChange()}>Update</button>
