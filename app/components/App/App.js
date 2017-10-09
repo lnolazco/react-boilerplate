@@ -17,12 +17,12 @@ export class AppContainer extends Component {
 
   renderUsers = (users) => {
     return users
-      .map(({ id, firstname, surname }) => (
+      .map(user => (
         <User
-          key={id}
-          id={id}
-          firstname={firstname}
-          surname={surname}
+          key={user.get('id')}
+          id={user.get('id')}
+          firstname={user.get('firstname')}
+          surname={user.get('surname')}
           onUpdate={this.props.update}
           onDelete={this.props.deleteUser}
         />
@@ -50,20 +50,20 @@ export class AppContainer extends Component {
 }
 
 AppContainer.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.object),
+  users: PropTypes.object.isRequired,
   getAll: PropTypes.func.isRequired,
   update: PropTypes.func.isRequired,
   addUser: PropTypes.func.isRequired,
   deleteUser: PropTypes.func.isRequired,
 };
 
-AppContainer.defaultProps = {
-  users: [],
-};
+// AppContainer.defaultProps = {
+//   users: [],
+// };
 
 function mapStateToProperties(state) {
   return {
-    users: state.users.data,
+    users: state.users,
   };
 }
 

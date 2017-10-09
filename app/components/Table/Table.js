@@ -20,7 +20,7 @@ const Table = ({ headers, data }) => (
 
 Table.propTypes = {
   headers: PropTypes.arrayOf(PropTypes.string).isRequired,
-  data: PropTypes.arrayOf(PropTypes.element).isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default Table;
