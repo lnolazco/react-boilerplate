@@ -63,7 +63,7 @@ AppContainer.defaultProps = {
 
 function mapStateToProperties(state) {
   return {
-    users: state.users.data,
+    users: state.users,
   };
 }
 
