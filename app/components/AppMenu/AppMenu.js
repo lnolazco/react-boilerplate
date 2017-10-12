@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Sidebar, Segment, Input, Menu, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
-class Header extends PureComponent {
+class AppMenu extends PureComponent {
   state = { activeItem: 'home', visible: false }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -15,9 +16,15 @@ class Header extends PureComponent {
     return (
       <div>
         <Menu secondary>
-          <Menu.Item name="home" active={activeItem === 'home'} onClick={this.toggleVisibility} />
-          <Menu.Item name="messages" active={activeItem === 'messages'} onClick={this.handleItemClick} />
-          <Menu.Item name="friends" active={activeItem === 'friends'} onClick={this.handleItemClick} />
+          <Menu.Item name="home" active={activeItem === 'home'} onClick={this.toggleVisibility}>
+            <Link to="/">Home</Link>
+          </Menu.Item>
+          <Menu.Item name="messages" active={activeItem === 'messages'} onClick={this.handleItemClick}>
+            <Link to="/messages">Messages</Link>
+          </Menu.Item>
+          <Menu.Item name="about" active={activeItem === 'about'} onClick={this.handleItemClick}>
+            <Link to="/about">About</Link>
+          </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item>
               <Input icon="search" placeholder="Search..." />
@@ -29,7 +36,7 @@ class Header extends PureComponent {
           <Sidebar as={Menu} animation="push" width="thin" visible={visible} icon="labeled" vertical inverted>
             <Menu.Item name="home">
               <Icon name="home" />
-              Home
+              <Link to="/">Home</Link>
             </Menu.Item>
             <Menu.Item name="gamepad">
               <Icon name="gamepad" />
@@ -37,7 +44,7 @@ class Header extends PureComponent {
             </Menu.Item>
             <Menu.Item name="camera">
               <Icon name="camera" />
-              Channels
+              <Link to="/about">About</Link>
             </Menu.Item>
           </Sidebar>
           <Sidebar.Pusher>
@@ -51,8 +58,8 @@ class Header extends PureComponent {
   }
 }
 
-Header.propTypes = {
+AppMenu.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
-export default Header;
+export default AppMenu;

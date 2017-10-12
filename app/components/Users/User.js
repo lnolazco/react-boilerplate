@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Button, Table } from 'semantic-ui-react';
 
 class User extends Component {
   constructor(props) {
@@ -40,18 +41,21 @@ class User extends Component {
     const { firstname, surname } = this.state;
 
     return (
-      <tr className="user">
-        <td>
+      <Table.Row>
+        <Table.Cell>
           <input type="text" className="user__input" value={firstname} onChange={this.onChangeFirstname} />
-        </td>
-        <td>
+        </Table.Cell>
+        <Table.Cell>
           <input type="text" className="user__input" value={surname} onChange={this.onChangeSurname} />
-        </td>
-        <td>
-          <button onClick={this.onUpdate} className="btn btn--primary" disabled={this.hasNotChange()}>Update</button>
-          <button onClick={this.onDelete} className="btn btn--secondary">Delete</button>
-        </td>
-      </tr>
+        </Table.Cell>
+        <Table.Cell>
+          <Button.Group>
+            <Button color="olive" onClick={this.onUpdate} disabled={this.hasNotChange()}>Update</Button>
+            <Button.Or />
+            <Button color="orange" onClick={this.onDelete}>Delete</Button>
+          </Button.Group>
+        </Table.Cell>
+      </Table.Row>
     );
   }
 }
